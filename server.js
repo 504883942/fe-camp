@@ -8,7 +8,7 @@ var serv = function(req, res) {
     root: '.'
   }).pipe(res)
 };
-
+var port = process.env.PORT || 1337;
 var app = http.createServer(function onRequest (req, res) {
   var path = parseUrl(req).pathname;
   if (path == '/echo') {
@@ -28,7 +28,7 @@ var app = http.createServer(function onRequest (req, res) {
     serv(req, res);
   }
 
-}).listen(8000)
+}).listen(port)
 
-console.log('Server started at  http://localhost:8000')
+console.log('Server started at  http://localhost:'+port)
 
